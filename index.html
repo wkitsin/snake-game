@@ -1,10 +1,28 @@
 <!-- Lets make a simple snake game -->
-<canvas id="canvas" width="600" height="600"></canvas><br>
-HighScore:
-<p id='highscore'>0</p>
 
 <!-- Jquery -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<!--  linking css and JS files-->
+<link rel="stylesheet" href="style.css">
+
+
+
+<canvas id="canvas" width="600" height="600"></canvas><br>
+HighScore:<p id='highscore'>0</p>
+
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Your score:</p>
+    <p id='modal_highscore'></p>
+  </div>
+</div>
+
+
 <img src="assets/goldcoin.png" id='goldcoin' height="0" width="0">
 <img src="assets/character.png" id='avatar' height="0" width="0">
+
+<script src="modal.js"></script>
 <script src="snake.js"></script>

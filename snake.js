@@ -1,4 +1,4 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 	//Canvas stuff
 	var ctx = canvas.getContext("2d");
 	var w = $("#canvas").width();
@@ -17,16 +17,16 @@ $(document).ready(function(){
 
 	function init()
 	{
-		d = "right"; //default direction
-		create_snake();
-		create_food(); //Now we can see the food particle
-		//finally lets display the score
-		score = 0;
+			d = "right"; //default direction
+			create_snake();
+			create_food(); //Now we can see the food particle
+			//finally lets display the score
+			score = 0;
 
-		//Lets move the snake now using a timer which will trigger the paint function
-		//every 60ms
-		if(typeof game_loop != "undefined") clearInterval(game_loop);
-		game_loop = setInterval(paint, 60);
+			//Lets move the snake now using a timer which will trigger the paint function
+			//every 100ms
+			if(typeof game_loop != "undefined") clearInterval(game_loop);
+			game_loop = setInterval(paint, 100);
 	}
 	init();
 
@@ -83,7 +83,7 @@ $(document).ready(function(){
 		if(nx == -1 || nx == w/cw || ny == -1 || ny == h/cw || check_collision(nx, ny, snake_array))
 		{
 			//restart game
-			init();
+			open_modal(score);
 			//Lets organize the code a bit now.
 			return;
 		}
@@ -165,7 +165,7 @@ $(document).ready(function(){
 	function update_score(x) {
 		highscrore_display.innerHTML = x;
 	}
-})
+// })
 
 window.onload = function() {
   var c = document.getElementById("canvas");
