@@ -30,12 +30,12 @@
   }
 
   function close_modal() {
-    modal.style.display = "none";
     init();
+    modal.style.display = "none";
   }
   // When the dies the modal will open
   function open_modal(x) {
     modal.style.display = "block";
     display_highscore_in_modal(x);
-    // init();
+    stop_timer();
   }

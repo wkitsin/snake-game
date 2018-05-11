@@ -9,25 +9,31 @@
 	var d;
 	var food;
 	var score;
+	var high_score = 2 ;
   var img_coin = document.getElementById("goldcoin");
   var img_avatar = document.getElementById("avatar");
 	var highscrore_display = document.getElementById("highscore");
+	var start_timer;
+	var game_timeout;
+
 	//Lets create the snake now
 	var snake_array; //an array of cells to make up the snake
-
 	function init()
 	{
+			game_timeout = 45;
+			time_value.innerHTML = game_timeout
 			d = "right"; //default direction
 			create_snake();
 			create_food(); //Now we can see the food particle
 			//finally lets display the score
 			score = 0;
-
+			update_score(score);
+			start_timer = setInterval(function() { timer() }, 1000);
 			//Lets move the snake now using a timer which will trigger the paint function
 			//every 100ms
 			if(typeof game_loop != "undefined") clearInterval(game_loop);
 			game_loop = setInterval(paint, 100);
-	}
+		}
 	init();
 
 	function create_snake()
@@ -39,7 +45,6 @@
 			//This will create a horizontal snake starting from the top left
 			snake_array.push({x: i, y:0});
 		}
-
 	}
 
 	//Lets create the food now
@@ -122,6 +127,12 @@
 
 		var score_text = "Score: " + score;
 		ctx.fillText(score_text, 5, h-5);
+
+		// if (game_timeout <= 0 || score >= high_score) {
+		// 	clearInterval(game_loop);
+		// 	open_modal(score);
+		// 	return;
+		// }
 	}
 
 	//Lets first create a generic function to paint cells
