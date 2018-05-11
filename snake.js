@@ -128,11 +128,11 @@
 		var score_text = "Score: " + score;
 		ctx.fillText(score_text, 5, h-5);
 
-		// if (game_timeout <= 0 || score >= high_score) {
-		// 	clearInterval(game_loop);
-		// 	open_modal(score);
-		// 	return;
-		// }
+		if (game_timeout <= 0 || score >= high_score) {
+			clearInterval(game_loop);
+			open_modal(score);
+			return;
+		}
 	}
 
 	//Lets first create a generic function to paint cells
