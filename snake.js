@@ -54,8 +54,19 @@
 			x: Math.round(Math.random()*(w-cw)/cw),
 			y: Math.round(Math.random()*(h-cw)/cw),
 		};
+
+    // check if food is produced on snake's body
+		food_collision(food)
 		//This will create a cell with x/y between 0-44
 		//Because there are 45(450/10) positions accross the rows and columns
+	}
+
+	function food_collision(food) {
+		snake_array.forEach(function(e){
+			if (food.x === e.x && food.y === e.y) {
+				create_food();
+			}
+		})
 	}
 
 	//Lets paint the snake now
