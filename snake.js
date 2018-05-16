@@ -5,11 +5,11 @@
 	var h = $("#canvas").height();
 
 	//Lets save the cell width in a variable for easy control
-	var cw = 10;
+	var cw = 30;
 	var d;
 	var food;
 	var score;
-	var high_score = 2 ;
+	var high_score = 99;
   var img_coin = document.getElementById("goldcoin");
   var img_avatar = document.getElementById("avatar");
 	var highscrore_display = document.getElementById("highscore");
@@ -32,7 +32,7 @@
 			//Lets move the snake now using a timer which will trigger the paint function
 			//every 100ms
 			if(typeof game_loop != "undefined") clearInterval(game_loop);
-			game_loop = setInterval(paint, 100);
+			game_loop = setInterval(paint, 120);
 		}
 	init();
 
