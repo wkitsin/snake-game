@@ -34,12 +34,23 @@
   function close_modal() {
     init();
     modal.style.display = "none";
+
+    // allow buttons to reappear
+    $('#new-player-button').show();
+    $('#returning-player-button').show();
+
+    // hiding all forms
+     $('#new-player-form').hide();
+     $('#returning-player-form').hide();
   }
   // When the dies the modal will open
   function open_modal(x) {
     modal.style.display = "block";
     display_highscore_in_modal(x);
     stop_timer();
+    // remove snake and food
+    snake_array = [];
+    food = nil; 
   }
 
   $('#new-player-button').click(function(){
