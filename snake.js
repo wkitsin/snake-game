@@ -18,6 +18,7 @@
 
 	//Lets create the snake now
 	var snake_array; //an array of cells to make up the snake
+	
 	function init()
 	{
 			game_timeout = 45;
@@ -55,7 +56,7 @@
 			y: Math.round(Math.random()*(h-cw)/cw),
 		};
 
-    // check if food is produced on snake's body
+    // check if food is spawned on snake's body
 		food_collision(food)
 		//This will create a cell with x/y between 0-44
 		//Because there are 45(450/10) positions accross the rows and columns

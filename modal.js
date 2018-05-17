@@ -48,6 +48,9 @@
     modal.style.display = "block";
     display_highscore_in_modal(x);
     stop_timer();
+    // remove snake and food
+    snake_array = [];
+    food = nil; 
   }
 
   $('#new-player-button').click(function(){
