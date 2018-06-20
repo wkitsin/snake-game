@@ -15,11 +15,53 @@ HighScore:<p id='highscore'>0</p>
 <div id="myModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close">Replay</span>
-    <p>Your score:</p>
-    <p id='modal_highscore'></p>
-    <button id= 'new-player-button' type="button">New Player!</button>
-    <button id= 'returning-player-button' type="button">Returning Player!</button>
+    <span class='close'>Replay</span>
+    <div class="post-play">
+      <p>Your score:</p>
+      <p id='modal_highscore'></p>
+      <button id= 'new-player-button' type="button">New Player!</button>
+      <button id= 'returning-player-button' type="button">Returning Player!</button>
+      <br><br>
+      <div id='new-player-form' class='modal-forms' style="padding: 15px; border: 1px solid #000; display: none;">
+        <form class="survey-form" style="font-size: 12px;">
+          <div class="form-group">
+            <span class="require" style="color: red; float: right;">* <label style="color: black; font-weight: 400;">indicates required</label></span>
+          </div><br>
+            <div class="form-group">
+              <label>Email Address</label>
+              <span class="require" style="color: red;">*</span>
+              <input type="email" class="form-control email" required />
+            </div>
+            <div class="form-group">
+              <label>Full Name</label>
+              <span class="require" style="color: red;">*</span>
+              <input id="full-name" type="text" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label>Instagram Handle</label>
+              <span class="require" style="color: red;">*</span>
+              <input id="insta-handle" type="text" class="form-control" required />
+            </div>
+            <input class="btn btn-default button-submit-player" type="submit" value="Enter" onclick="new_player_button(event)"/>
+        </form>
+      </div>
+
+      <div id='returning-player-form' class='modal-forms' style="padding: 15px; border: 1px solid #000; display: none;">
+        <form class="survey-form" style="font-size: 12px;">
+          <div class="form-group">
+            <span class="require" style="color: red; float: right;">* <label style="color: black; font-weight: 400;">indicates required</label></span>
+          </div><br>
+            <div class="form-group">
+              <label>Email Address</label>
+              <span class="require" style="color: red;">*</span>
+              <input type="email" class="form-control email" required />
+            </div>
+            <input class="btn btn-default button-submit-player" type="submit" value="Enter"  onclick="return_player_button(event)"/>
+        </form>
+    </div>
+    </div>
+    <div class="highscorers">
+    </div>
   </div>
 </div>
 
@@ -34,3 +76,4 @@ HighScore:<p id='highscore'>0</p>
 <script src="timer.js"></script>
 <script src="modal.js"></script>
 <script src="snake.js"></script>
+<script src="data.js"></script>
