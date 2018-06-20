@@ -7,18 +7,26 @@
 	//Lets save the cell width in a variable for easy control
 	var cw = 30;
 	var d;
+	var previous_d ;
 	var food;
 	var score;
 	var high_score = 99;
   var img_coin = document.getElementById("goldcoin");
-  var img_avatar = document.getElementById("avatar");
+  var img_avatar;
 	var highscrore_display = document.getElementById("highscore");
 	var start_timer;
 	var game_timeout;
+	var img_counter = 0;
+	// var right_boy_array = [document.getElementById('avatar-right-1'),document.getElementById('avatar-right-2'),
+	// document.getElementById('avatar-right-3'),document.getElementById('avatar-right-4')];
+	preloadRightBoyImages();
+	preloadBackBoyImages();
+	preloadLeftBoyImages();
+	preloadFrontBoyImages();
 
 	//Lets create the snake now
 	var snake_array; //an array of cells to make up the snake
-	
+
 	function init()
 	{
 			game_timeout = 45;
@@ -33,7 +41,7 @@
 			//Lets move the snake now using a timer which will trigger the paint function
 			//every 100ms
 			if(typeof game_loop != "undefined") clearInterval(game_loop);
-			game_loop = setInterval(paint, 120);
+			game_loop = setInterval(paint, 300);
 		}
 	init();
 
@@ -123,9 +131,13 @@
 			tail.x = nx; tail.y = ny;
 		}
 		//The snake can now eat the food.
-
 		snake_array.unshift(tail); //puts back the tail as the first cell
     paint_head(nx, ny);
+		img_counter ++ ;
+		if (img_counter === 4) {
+			img_counter = 0 ;
+		}
+
 		for(var i = 1; i < snake_array.length; i++)
 		{
 			var c = snake_array[i];
@@ -158,7 +170,17 @@
 
   function paint_head(x, y)
 	{
-		// ctx.fillStyle = "blue";
+		var previous_d = d;
+		if (d === 'right') {
+			var img_avatar = right_boy_array[img_counter];
+		} else if (d === 'left') {
+			var img_avatar = left_boy_array[img_counter];
+		} else if (d === 'up') {
+			var img_avatar = back_boy_array[img_counter];
+		} else if (d === 'down') {
+			var img_avatar = front_boy_array[img_counter];
+		}
+
     ctx.drawImage(img_avatar, x*cw, y*cw, 30, 30);
 	}
 
@@ -189,6 +211,15 @@
 		highscrore_display.innerHTML = x;
 	}
 // })
+	function preloadImage(array)
+	{
+		for (var i = 0; i < array.length; i++) {
+			var img=new Image();
+			img.src=array[i];
+			img_array << img
+		}
+		debugger
+	}
 
 window.onload = function() {
   var c = document.getElementById("canvas");

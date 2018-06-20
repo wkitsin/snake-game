@@ -28,7 +28,7 @@ function submit_details(data)
         var string = '';
         $('.post-play').hide();
         $.each(data.highscore, function(k,v){
-          string = string + `<div class='highscore_person'>${k}</div><div class='highscore_figure'>${v}</div>`
+          string = string + `<div class='highscore_person'>${k}</div><br><div class='highscore_figure'>${v}</div>`
         });
         $('.highscorers').append(string);
       } else {
