@@ -42,81 +42,37 @@
     // hiding all forms
      $('#new-player-form').hide();
      $('#returning-player-form').hide();
+     $('.highscorers').empty();
   }
   // When the dies the modal will open
   function open_modal(x) {
+    $('.post-play').show();
     modal.style.display = "block";
     display_highscore_in_modal(x);
     stop_timer();
     // remove snake and food
     snake_array = [];
-    food = nil; 
+    food = null;
   }
 
   $('#new-player-button').click(function(){
     // fadeout buttons
-    $('#new-player-button').fadeOut();
-    $('#returning-player-button').fadeOut();
+    // $('#new-player-button').fadeOut();
+    // $('#returning-player-button').fadeOut();
 
-    //  insert form
-    append_new_player_form();
+    //  show form
     $('#new-player-form').fadeIn(1000);
+    // hide returning player form
+    $('#returning-player-form').hide();
   });
 
 
   $('#returning-player-button').click(function(){
     // fadeout buttons
-    $('#new-player-button').fadeOut();
-    $('#returning-player-button').fadeOut();
+    // $('#new-player-button').fadeOut();
+    // $('#returning-player-button').fadeOut();
 
-    //  insert form
-    append_returning_player_form();
+    //  show form
     $('#returning-player-form').fadeIn(1000);
+    $('#new-player-form').hide();
   });
-
-
-  function append_new_player_form() {
-    $('.modal-content').append(`
-      <div id='new-player-form' style="padding: 15px; border: 1px solid #000;">
-      <form id="survey-form" style="font-size: 12px;">
-        <div class="form-group">
-          <span class="require" style="color: red; float: right;">* <label style="color: black; font-weight: 400;">indicates required</label></span>
-        </div><br>
-          <div class="form-group">
-            <label>Email Address</label>
-            <span class="require" style="color: red;">*</span>
-            <input id="email" type="email" class="form-control" required />
-          </div>
-          <div class="form-group">
-            <label>Full Name</label>
-            <span class="require" style="color: red;">*</span>
-            <input id="full-name" type="text" class="form-control" required />
-          </div>
-          <div class="form-group">
-            <label>Instagram Handle</label>
-            <span class="require" style="color: red;">*</span>
-            <input id="insta-handle" type="text" class="form-control" required />
-          </div>
-          <input id="button-submit-new-player" class="btn btn-default" type="submit" value="Enter" />
-      </form>
-      </div>
-      `)
-  };
-
-  function append_returning_player_form() {
-    $('.modal-content').append(`
-      <div id='returning-player-form' style="padding: 15px; border: 1px solid #000;">
-      <form id="survey-form" style="font-size: 12px;">
-        <div class="form-group">
-          <span class="require" style="color: red; float: right;">* <label style="color: black; font-weight: 400;">indicates required</label></span>
-        </div><br>
-          <div class="form-group">
-            <label>Email Address</label>
-            <span class="require" style="color: red;">*</span>
-            <input id="email" type="email" class="form-control" required />
-          </div>
-          <input id="button-submit-returning-player" class="btn btn-default" type="submit" value="Enter" />
-      </form>
-      </div>
-      `)
-  };
